@@ -1,0 +1,32 @@
+                 University of British Columbia
+                 Department of Computer Science 
+                         CPSC 313  
+                     Winter 2013, Term 2
+
+                      Assignment  __2__ 
+
+
+STUDENT  1
+Name : Michael Kwan
+St. No: 29146115
+Unix Id : h7a8
+Email: mike.kwan@hotmail.com
+
+
+STUDENT  2
+Name : James Deng
+St. No: 13340112
+Unix Id : w5z7
+Email: james.deng@alumni.ubc.ca
+
+
+
+By typing our names  and student numbers  in the above lost, we certify that the 
+work in the attached assignment was performed ONLY BY US except the parts that have 
+been properly acknowledged in the assignment and below. In addition, we indicate 
+that we are fully aware of the rules and consequences of plagiarism, as set forth 
+by the Department of Computer Science and the University of British Columbia. 
+
+
+
+ACKNOWLEDGMENTS :

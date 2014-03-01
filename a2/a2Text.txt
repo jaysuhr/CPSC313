@@ -1,0 +1,115 @@
+1) 
+rmmovl rA, D(rB,4)
+
+Fetch:
+	iCd:iFn <- M1[PC]
+	rA:rB <- M1[PC+1]
+	valC <- M4[PC+2]
+	valP <- PC+6
+Decode:
+	valA <- R[rA]
+	valB <- R[rB] 
+Execute:
+	valE <- valB*4 + valC
+Memory:
+	M4[valE] <- valA	
+Write Back:
+	~~~~~~
+PC update:
+	PC <- valP
+
+
+mrmovl D(rB,4), rA
+
+Fetch:
+	iCd:iFn <- M1[PC]
+	rA:rB <- M1[PC+1]
+	valC <- M4[PC+2]
+	valP <- PC+6
+Decode:
+	valA <- R[rA]
+	valB <- R[rB] 
+	dstM <- rA
+Execute:
+	valE <- valB*4 + valC
+Memory:
+	valM <- M4[valE]	
+Write Back:
+	R[dstM] <- valM
+PC update:
+	PC <- valP
+
+
+movl.s
+
+if data can be loaded from a list by address + index * step in memory then loaded into the correct location specified again by list address + index * step  registers, then it'd work by definiton
+
+expect ebx to = -1 and eight = 8
+
+**Solution passes test**
+
+
+2) 
+iopl V, rB
+
+Fetch:
+	iCd:iFn <- M1[PC]
+	rA:rB <- M1[PC+1]
+	valC <- M4[PC+2]
+	valP <- PC+6
+Decode:
+	valA <- null
+	valB <- R[rB]
+	dstE <- rB
+Execute:
+	valE <- valB OP valC
+	set CC
+Memory:
+	~~~~
+Write Back:
+	R[dstE] <- valE
+PC update:
+	PC <- valP	
+
+
+iopl.s
+
+nothing changed in the exec stage so we just need to confirm using an opl instruction works on test data
+
+two for redundancy
+
+if fail expect CAFE0000 and CAFEBABE
+if pass expect CAFEBABE and CAFE0000
+
+**Solution passes test**
+
+
+3) 
+call (rA)
+
+Fetch:
+	iCd:iFn <- M1[PC]
+	rA:rB <- M1[PC+1]
+	valP <- PC+2
+Decode:
+	valA <- R[rA]
+	valB <- R[%esp]
+	dstE <- %esp
+Execute:
+	valE <- valB-4
+Memory:
+	M4[valE] <- valP
+Write Back:
+	R[dstE] <- valE
+PC update:
+	PC <- valA
+
+
+call.s
+
+call fails if it fails to return so we have neverexec to make sure the ret addr was stored and is correct and exit to make sure it is able to continue onto return after foo returns
+
+looking at stack we can tell if it was the same as before so stack pointer was not messed up in the process
+We expect 'failure' to remain as 0.
+
+**Solution passes test**
