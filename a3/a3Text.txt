@@ -1,0 +1,38 @@
+**QUESTION 1**
+1) Data hazard bug
+Symptoms: 
+srcB was not checked for hazards and as a result the tests at address 300 (sBHazard) and address 500 (bLoadUse) did not work properly.
+The instruction prior was not able to modify the register before it was checked by decode.
+
+What was wrong in the CPU.java file:
+It did not check srcB for hazards and as a result, did not stall.
+
+Solution:
+Added the condition to check if there is a data hazard at srcB:
+(isDataHazardOnReg (d.srcB.getValueProduced()))
+
+
+2) Control hazard: Conditional JXX bug times
+Symptoms:
+The tests at address 600 (takenJmp) and address 700 (notTkJmp) did not jump when it should have.
+
+What was wrong in the CPU.java file:
+It did not check the times when the jump instruction was at the execute stage to create another bubble.
+
+Solution:
+Added the condition to check for the times when the jump instruction was at the execute stage:
+(E.iCd.get()==I_JXX && M.iFn.get()!=C_NC)
+
+
+**QUESTION 2**
+1) max.s
+98 instructions executed in 236 clock cycles
+Pipeline efficiency of: 2.40816327 CPI
+
+2) sum.s
+45 instructions executed in 117 clock cycles
+Pipeline efficiency of: 2.6 CPI
+
+3) selection-sort.s
+741 instructions executed in 2214 clock cycles
+Pipeline efficiency of: 2.98785425 CPI
