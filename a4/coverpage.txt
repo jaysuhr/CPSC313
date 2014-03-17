@@ -1,0 +1,65 @@
+James Deng      w5z7
+Michael Kwan    x0x0
+
+
+
+Ox100 fwdOrder
+
+test passed
+8 ins in 12 clk -> 4 stall
+
+
+0x200 srcAHzd
+
+test passed
+11 ins in 18 clk -> 7 stall
+
+
+0x300 srcBHzd
+
+test passed
+11 ins in 18 clk -> 7 stall
+
+
+0x400 aLoadUse
+
+test passed
+12 ins in 20 clk -> 8 stall
+
+
+0x500 bLoadUse
+
+test passed
+12 ins in 20 clk -> 8 stall
+
+
+0x600 takenjmp
+
+test passed
+10 ins in 15 clk -> 4 stall
+
+
+0x700 notTkjmp
+
+test passed
+10 ins in 16 clk -> 6 stall
+
+
+0x800 callRtn
+
+test passed
+9 ins in 16 clk -> 7 stall
+
+
+
+
+sum.s
+
+45 instructions executed in 57 cycles -> 12 stalls
+CPI = 1.266
+
+
+max.s
+
+98 instructions in 128 clocks -> 30 stalls
+CPI = 1.306
