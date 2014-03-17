@@ -1,8 +1,3 @@
-James Deng      w5z7
-Michael Kwan    x0x0
-
-
-
 Ox100 fwdOrder
 
 test passed
